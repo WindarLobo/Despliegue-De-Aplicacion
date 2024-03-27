@@ -1,0 +1,8 @@
+Copiar fichero desde el ordenador a un contenedor 
+
+1) Crear el fichero y compruebas si estas dentro de la carpeta 
+2) ls  para ver el fichero
+3) docker run -d --name copiar-fichero nginx
+4) docker cp prueba.txt  copiar-fichero:/usr/local/bin/prueba.txt
+5) para verificar si s ecopio correctamente  docker exec copiar-fichero ls /usr/local/bin/  o  docker exec copiar-fichero cat /usr/local/bin/prueba.txt
+ 

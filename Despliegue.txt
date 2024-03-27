@@ -1,0 +1,88 @@
+ 
+Volumen bineado
+docker build -t montecastelo:v1.1 .
+  docker images
+ docker run -d -p 8080:80 -v.:/usr/share/nginx/html  --name montecastelo 8774d18bc9eb
+ docker ps
+  docker inspect f45d0724a96c
+ 
+
+
+Borrar imagenes
+docker rmi 1589d023c1a7
+
+Borrar contenedor 
+docker rm -f 6fd3ba5fcd39
+
+hacer cambio en el html
+ docker exec -it montecastelo sh
+ ls
+ cd /usr/share/nginx/html/
+ ls
+ apk add nano
+ nano index.html
+
+
+ solo lectura 
+docker run -d -p 8080:80 -v.:/usr/share/nginx/html:ro  --name montecastelo 8774d18bc9eb
+
+Detener el contenerdor 
+docker stop montecastelo
+
+docker network ls
+docker inspect 990e8e0616f4
+
+ir con otro ip
+docker run -d -p 8081:80   --name montecastelo-2  8774d18bc9eb
+
+Contener  ubuntu levantado   en la red brigde por defecto 
+
+nano Dockerfile
+ docker build -t  ubuntu-1:laster .
+ docker images
+docker run -d --name ubn1 86b5b2493687
+ docker ps
+ docker exec -it ubn1 bash
+telnet
+apt update
+ apt install telnet
+Y
+telnet
+ ^C
+ ps aux
+
+docker run -d --name ngnx1  nginx:latest 
+docker exec -it ubn1 bash 
+ ping ubn1
+ apt install ping
+ apt update
+apt install ping
+ telnet 172.16.0.3 80
+
+crear network 
+ docker stop ngnx1
+ docker network create testnet
+docker start ngnx1
+docker network connect testnet ngnx1
+
+desconectar un contenedor de una red 
+docker network disconnect bridge ngnx1
+
+para ver contenedor conectado 
+ docker network inspect bridge
+docker network inspect testnet
+ docker run -d --network host --name ngnx1 nginx
+docker inspect ngnx1
+
+
+para subir al repo  
+contruimos la imagen 
+ docker build -t windarlobogarces909/web-amazon:1.0.0 .
+docker images
+la subimos 
+ docker push windarlobogarces909/web-amazon:v1.0.0
+la descargamos
+docker pull windarlobogarces909/web-amazon:v1.0.0
+creamos d enuevo y la subimos con -a sin indicar las versiones
+ docker build -t windarlobogarces909/web-amazon:v1.2.4 .
+ docker push -a  windarlobogarces909/web-amazon

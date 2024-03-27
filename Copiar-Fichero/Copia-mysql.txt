@@ -1,0 +1,8 @@
+Copiar por comando un scrit al contenedor 
+
+1)docker run -d -p 3306:3306 -e MYSQL_ROOT_PASSWORD=test1234 --name world  mysql
+
+2)docker cp world-db/script.sql world:/docker-entrypoint-initdb.d/script.sql    
+3)docker exec -it world mysql -uroot -p  (introducir la clave ) no es necesario pero para asegurar 
+y dentro lanzas USE MiBaseDeDatos; y SHOW TABLES;
+ (Nombre de la base de datos)

@@ -1,0 +1,46 @@
+services:
+  nginx:
+    image: nginx
+    container_name: webserver
+    restart: always
+    ports:
+      - "8888:80"
+    volumes:
+      - "./dist:/usr/share/nginx/html"
+    networks:
+      - testnet
+
+  db:
+    image: mysql
+    container_name: worldb
+    restart: always
+    env_file: .env-secret
+    ports:
+      - "3306:3306"
+    volumes:
+      - "mysql-data:/var/lib/mysql"
+      - "./world-db:/docker-entrypoint-initdb.d"
+    networks:
+      - testnet
+  db_postgres:
+    image: postgres
+    container_name: worldb-postgres
+    restart: always
+    ports:
+      - "5432:5432"
+    volumes:
+      - "./postgres:/docker-entrypoint-initdb.d"
+    environment:
+      - POSTGRES_PASSWORD=test1234
+    networks:
+      - testnet
+
+networks:
+  testnet:
+    driver: bridge
+
+volumes:
+  mysql-data:
+    driver: local
+  postgres:
+    driver: local

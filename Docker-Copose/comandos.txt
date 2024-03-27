@@ -1,0 +1,9 @@
+ ***Ejecuta un Docker-compose ***
+1)docker-compose up -d    
+
+ ***Resetea un db *** 
+2)docker-compose restart db
+
+***para eliminar un volumen ****
+3)docker volume ls
+4)docker volume rm nombre_del_volumen

@@ -1,0 +1,21 @@
+**Creamos las imagenes de cada una tiene que tener un Dockerfile ***
+
+1) docker build -t adminer-image -f Dockerfile-adminer .
+2) docker build -t postgres-image -f Dockerfile-postgres .
+3) docker build -t nginx-image -f Dockerfile-nginx .
+4) docker build -t mysql-image -f Dockerfile-mysql .
+
+
+**Luego hacemos un tag y los push  **** 
+
+
+ 1) docker tag mysql-image  windarlobogarces909/mysql   
+  2) Seguido =>  docker push  windarlobogarces909/mysq
+
+  **** Asi sera con cada imagen ****
+   
+ 1) docker tag adminer-image  windarlobogarces909/adminer        
+  2) docker push  windarlobogarces909/adminer
+
+1)docker tag postgres-image  windarlobogarces909/postgres   
+ 2) docker push  windarlobogarces909/postgres 

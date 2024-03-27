@@ -1,0 +1,37 @@
+version: "3.8"
+services:
+  mysql:
+    image: mysql
+    volumes:
+      - dbdata:/var/lib/mysql
+      - "./world-db:/docker-entrypoint-initdb.d"
+    environment:
+      MYSQL_DATABASE: world
+      MYSQL_USER: root
+      MYSQL_PASSWORD: example
+      MYSQL_ROOT_PASSWORD: example
+    ports:
+      - "3306:3306"
+    networks:
+      - composenet
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    environment:
+      PMA_HOST: mysql
+      PMA_USER: root
+      PMA_PASSWORD: example
+    ports:
+      - "8080:80"
+    depends_on:
+      - mysql
+    networks:
+      - composenet
+
+networks:
+  composenet:
+    driver: bridge
+
+volumes:
+  dbdata:
+    driver: local

@@ -1,0 +1,6 @@
+FROM caddy
+
+COPY ./dist/ /usr/share/caddy/
+
+
+

@@ -1,0 +1,6 @@
+
+https://dev.mysql.com/doc/index-other.html
+
+docker build -t worldb:v1.0.0 .
+ docker images
+ docker run -d -p 3306:3306 -e MYSQL_ROOT_PASSWORD=test1234 --name world  ff723ff7efef

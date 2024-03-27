@@ -1,0 +1,5 @@
+Para copiar por comando un htmla un contenedor es: 
+1)Baja una imagen 
+2) docker run -d --name copiar-html -p 8080:80  nginx
+3) docker cp ./dis/. copiar-html:/usr/share/nginx/html
+4) docker start copiar-html

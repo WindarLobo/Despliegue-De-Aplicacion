@@ -1,0 +1,5 @@
+Copiar un scrit para postgres
+
+1)  docker run -d -p 5432:5432 -e POSTGRES_PASSWORD=test1234  --name postgre-prueba  postgres
+2) docker cp docker-entrypoint-initdb.d/script.sql postgre-prueba:/docker-entrypoint-initdb.d/script.sql
+3)docker exec -it postgre-prueba psql -U postgres -f /docker-entrypoint-initdb.d/script.sql

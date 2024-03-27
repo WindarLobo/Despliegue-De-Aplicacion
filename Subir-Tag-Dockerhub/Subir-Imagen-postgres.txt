@@ -1,0 +1,40 @@
+Subir imagen con tag postgres
+
+** Crar el docker File y vete a la carpeta en donde tienes el dockerfile 
+
+1)cd 
+
+**Crea la imagem **
+
+2) docker build -t  windarlobogarces909/postgres:v1.0.0 .
+
+** Subelo al Docker Hub
+
+3)  docker push  windarlobogarces909/postgres:v1.0.0
+
+** Run para probar q todo esta bien ***
+
+4)  docker run -d -p 5432:5432 -e POSTGRES_PASSWORD=test1234  --name postgre-prueba  af88b8dc66a9
+
+**  Borra lo q tienes en el contenedor y la imagen y baja la q tienes en docker hub **
+
+5) docker pull windarlobogarces909/postgres:v1.0.0
+
+** Crea otro tag con otra version ** 
+
+6) docker build -t  windarlobogarces909/postgres:v1.1.1 .
+
+** pruebalo de nuevo **
+
+7) docker run -d -p 5432:5432 -e POSTGRES_PASSWORD=test1234  --name postgre-prueba af88b8dc66a9
+
+
+** Elimina el contenedor **
+8)  docker rm -f  a437ad74c5af
+
+**Elimina la imagen **
+
+9)  docker rm -f  a437ad74c5af
+
+
+

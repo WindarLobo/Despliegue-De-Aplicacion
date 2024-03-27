@@ -1,0 +1,31 @@
+Subir iamgen txt en Dockerhun 
+
+** Irte a la carepeta y crear un txt y un DockerFile **
+
+**Crea la imagen 
+
+
+1) docker build -t  windarlobogarces909/text:v1.0.0 .
+
+**Run para verificar que se a copiado en el contenedor corectamente **
+
+2)  docker run -it -d  --name textimagen 9075b4fb051d  (-it Esto indica que queremos correr el contenedor en modo interactivo y conectarlo a la terminal actual)
+
+**Verficamos si esta  ***
+
+3)    docker exec textimagen ls /var/lib/apt/prueba.txt y para ver lo q esta dentro de txt -> docker exec  textimagen cat  /var/lib/apt/prueba.txt
+
+
+** lo subimos **
+
+6)  docker push  windarlobogarces909/text:v1.0.0
+
+** Eliminamos el contenedor y la imagen para hacer el pull ***
+
+7)docker rm -f textimagen
+8) docker rmi 9075b4fb051d
+
+
+** Hacemos el pull ** 
+
+9) docker pull windarlobogarces909/text:v1.0.0

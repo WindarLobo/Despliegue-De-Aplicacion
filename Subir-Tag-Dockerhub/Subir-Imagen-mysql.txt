@@ -1,0 +1,5 @@
+Para subir una imagen en dockerhub 
+
+1) docker build -t windarlobogarces909/subir-sql .
+2)docker push  windarlobogarces909/subir-sql 
+3)docker run -d -p 3306:3306 -e MYSQL_ROOT_PASSWORD=test1234 --name world  e528a7d75ff0

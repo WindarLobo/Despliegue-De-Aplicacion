@@ -1,0 +1,29 @@
+Subir una imagen html al dockerhub :
+
+
+1) te vas a la carpeta en donde tienes la imagen con el html 
+
+2) nano Dockerfile
+
+**contruimos la imagen **
+
+3) docker build -t  (el nombre del repo dockerhub )-> windarlobogarces909/reloj:tagname .
+
+**Lo ejecutamos a ver si funciona **
+
+4) docker run -d -p 8080:80 --name SubirImagen   windarlobogarces909/reloj:tagname
+
+***La subimos **
+
+5) docker push windarlobogarces909/reloj:tagname
+
+**la descargamos**
+
+6) docker pull windarlobogarces909/reloj:tagname
+
+**Creamos de nuevo y la subimos con -a sin indicar las versiones
+
+7) docker build -t windarlobogarces909/reloj:v1.0.2 .
+
+8) docker push -a windarlobogarces909/reloj
+
